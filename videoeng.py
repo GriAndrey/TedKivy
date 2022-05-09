@@ -9,14 +9,12 @@ import random
 import re
 
 
-
 class TestApp(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
     def build(self):
         self.layout = MyLayout()
-
         return self.layout
 
 
@@ -31,6 +29,7 @@ class MyLayout(BoxLayout):
         self.goodFinder = []
         super().__init__(**kwargs)
 
+    # нахождение начала воспроизведения и длительности воспроизведения
     def on_loaded(self, *args):
 
         try:
@@ -42,8 +41,7 @@ class MyLayout(BoxLayout):
         except IndexError as e:
             pass
 
-
-
+    # нахождение в БД необохдиых видео и субтитров к нему по запросу
     def update_label(self, dt=0):
         self.video.state = "pause"
         self.video.source = ''
@@ -72,10 +70,6 @@ class MyLayout(BoxLayout):
 
     def stop_playing(self, t = 0):
         self.video.state = "pause"
-
-
-
-
 
 
 TestApp().run()
