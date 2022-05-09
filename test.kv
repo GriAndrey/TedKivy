@@ -1,0 +1,39 @@
+<MyLayout>:
+    orientation: 'vertical'
+
+    video: video_id
+    text_input: input_id
+    sub: sub_id
+
+    Video:
+        size_hint: 1, 1
+
+        id: video_id
+        source: ''
+        preview: 'ted.jpg'
+
+    Label:
+        size_hint: 1, None
+        height: 50
+        id: sub_id
+        text: 'Enter a couple of English words below. If you do not enter anything, then a random video will be displayed.'
+
+    TextInput:
+        size_hint: 1, None
+        height: 30
+        id: input_id
+        text: ''
+
+    BoxLayout:
+        size_hint: 1, None
+        height: 60
+        orientation: 'horizontal'
+
+        Button:
+            text: 'Find'
+            on_press: root.start_playing()
+
+        Button:
+            text: 'Stop'
+            on_press: root.stop_playing()
+
